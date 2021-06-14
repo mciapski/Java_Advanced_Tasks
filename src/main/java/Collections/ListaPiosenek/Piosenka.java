@@ -1,5 +1,7 @@
 package Collections.ListaPiosenek;
 
+import java.util.Objects;
+
 public class Piosenka implements Comparable<Piosenka> {
     String tytul;
     String artysta;
@@ -30,6 +32,21 @@ public class Piosenka implements Comparable<Piosenka> {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Piosenka piosenka = (Piosenka) o;
+        return getTytul().equals(piosenka.getTytul()) &&
+                getArtysta().equals(piosenka.getArtysta()) &&
+                getOcena().equals(piosenka.getOcena()) &&
+                getBpm().equals(piosenka.getBpm());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tytul, artysta, ocena, bpm);
+    }
 
     @Override
     public String toString() {
