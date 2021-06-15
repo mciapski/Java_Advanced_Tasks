@@ -50,7 +50,7 @@ public class Player implements Comparable<Player>{
     }
 
     // Nadpisanie metod equals oraz hashcode w celu porównywania obiektów
-// Zbiór Set uniemożliwia dodawanie duplikatów ale trzeba przesłonić equals() i hashcode() w tym celu
+    // Zbiór Set uniemożliwia dodawanie duplikatów ale trzeba przesłonić equals() i hashcode() w tym celu
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,11 +73,12 @@ public class Player implements Comparable<Player>{
                 ", salary=" + earnings +
                 '}';
     }
-// Nadpisana metoda compareTo dla Comparatora
+// Nadpisana metoda compareTo dla Comparable
 // Porównuje długości FirstName
     @Override
     public int compareTo(Player o) {
-        return this.getFirstName().length()-o.getFirstName().length();
+
+        return -1*this.getFirstName().length()-o.getFirstName().length();
     }
 
 

@@ -51,42 +51,54 @@ public class BasketBallTeamApp {
 
         BasketBallTeam basketBallTeam = new BasketBallTeam();
         List<Player> listPlayers = new ArrayList<>();
-        basketBallTeam.addPlayer(new Player("Michael", "Jordan", 200, new BigDecimal(15000)));
-        basketBallTeam.addPlayer(new Player("Thomas", "Edison", 180, new BigDecimal(30000)));
-        basketBallTeam.addPlayer(new Player("Nicolasssss", "Tesla", 160, new BigDecimal(40000)));
+        basketBallTeam.addPlayer(new Player("Michael", "A", 200, new BigDecimal(15000)));
+        basketBallTeam.addPlayer(new Player("Thomas", "B", 180, new BigDecimal(30000)));
+        basketBallTeam.addPlayer(new Player("Nicolasssss", "C", 160, new BigDecimal(40000)));
         basketBallTeam.addPlayer(new Player("Nicolasssss", "Tesla", 160, new BigDecimal(20000)));
         basketBallTeam.addPlayer(new Player("Nico", "Tesla", 160, new BigDecimal(200000)));
 
         //Wyświetlanie obiektów kolekcji SET
         basketBallTeam.presentingList(basketBallTeam);
 
+        System.out.println("Przekonwerterowany SET na List - nieposortowane");
         //Wywołanie metody convertToList na obiekcie basketBallTeam i przypisanie stworzonej tak listy do listPlayer
         listPlayers = basketBallTeam.convertToList();
         System.out.println(listPlayers);
 
-        //Wywyłanie metody sort z przesłoniętą metodą compareTo - sortowanie po długości firstName
+        System.out.println("Sortowanie Imion: Nadpisana metoda compareTo w klasie Player" );
+        //Wywyłanie metody sort z przesłoniętą metodą compareTo Interfejsu Comparable - sortowanie po długości firstName
         Collections.sort(listPlayers);
-
         //Wyświetlenie listy posortowanej po długości firstName
         System.out.println(listPlayers);
 
+
+
+
+        System.out.println("Sortowanie Zarobki: sortByEarnings()");
         //Metoda w klasie EarningsComparator przesłonięta w celu porównywania earnings
         //Wywołanie metody sortByEarnings
         listPlayers = basketBallTeam.sortByEarnings(listPlayers);
         //Wyświetlenie listy posortowanej po earnings
         System.out.println(listPlayers);
 
+        System.out.println("Maksymalne zarobki: MaxEarnings()");
         //Utworzenie obiektu do przechowania informacji o graczu z maksymalnym wynagrodzeniem
         Player playerWithMax = basketBallTeam.MaxEarnings();
         //Wyświetlenie obiektu z maksymalnymi zarobkami
         System.out.println(playerWithMax);
 
+        System.out.println("Sortowanie Imion: AlphabeticFirstNameComparator()");
         //Lista zawodników posortowana alfabetycznie po firstName przy użyciu klasy ANONIMOWEJ
         listPlayers = basketBallTeam.AlphabeticFirstNameComparator();
         System.out.println(listPlayers);
 
+        System.out.println("Sortowanie Imion: AlphabeticLastNameByLambdaComparator()");
         //Lista zawodników posortowana alfabetycznie po lastName przy użyciu comparatowa byLastName (LAMBDA)
         listPlayers=basketBallTeam.AlphabeticLastNameByLambdaComparator();
+        System.out.println(listPlayers);
+
+        System.out.println("Sortowanie Imion: AlphabeticLastNameByLambdaReverse()");
+        listPlayers=basketBallTeam.AlphabeticLastNameByLambdaReverse();
         System.out.println(listPlayers);
 
     }

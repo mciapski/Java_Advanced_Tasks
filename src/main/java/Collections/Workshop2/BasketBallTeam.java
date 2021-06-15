@@ -43,7 +43,7 @@ public class BasketBallTeam {
         listFromSet = team.stream().collect(Collectors.toList());
         return listFromSet;
     }
-
+    // Długie rozwiązanie
     //Metoda sortująca z wykorzystaniem komparatora EarningsComparator
     public List<Player> sortByEarnings(List<Player> listSortedByEarnings) {
         convertToList();
@@ -72,11 +72,19 @@ public class BasketBallTeam {
         listFromSet.sort(alphabeticComparator);
         return listFromSet;
     }
+    // 1. Dłuższa wersja
     // Metoda definiująca nowy komparator za pomocą LAMBDY "byLastName" i sortująca alfabetycznie po nazwiskach
     public List<Player> AlphabeticLastNameByLambdaComparator(){
      Comparator<Player> byLastName = (Player player1,Player player2)->player1.getLastName().compareTo(player2.getLastName());
+     //byLastName.reversed(); - Jako alternatywa dla odwróconej kolejności
      listFromSet.sort(byLastName);
      return listFromSet;
+    }
+    // 2. Krótsza wersja
+    //Metoda sortująca po lastName i odwracająca kolejność
+    public List<Player>  AlphabeticLastNameByLambdaReverse(){
+        listFromSet.sort((o1, o2) -> (o2.getLastName().compareTo(o1.getLastName())));
+        return listFromSet;
     }
 
 
