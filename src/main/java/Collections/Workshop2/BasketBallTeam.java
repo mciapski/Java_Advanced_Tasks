@@ -65,11 +65,11 @@ public class BasketBallTeam {
         class AlphabeticComparator implements Comparator<Player> {
             @Override
             public int compare(Player o1, Player o2) {
+
                 return o1.getFirstName().compareTo(o2.getFirstName());
             }
         }
-        AlphabeticComparator alphabeticComparator = new AlphabeticComparator();
-        listFromSet.sort(alphabeticComparator);
+        listFromSet.sort(new AlphabeticComparator());
         return listFromSet;
     }
     // 1. Dłuższa wersja
