@@ -50,6 +50,13 @@ public class ThingsBox<T extends Book> {
 
   }
 
+  @Override
+  public String toString() {
+    return "ThingsBox{"+
+        "Waga: "+ sumWeight()+"\n"+
+        " Zawartość=" + resultList +
+        '}';
+  }
 }
 
 
