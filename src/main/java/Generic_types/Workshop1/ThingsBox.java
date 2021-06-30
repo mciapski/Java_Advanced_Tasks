@@ -27,25 +27,25 @@ public class ThingsBox<T extends Book> {
     return resultList;
   }
 
-  // W pętli foreach nie można użyć parametru T. Musi to już być typ ograniczający. W tym przypadku Book.
-  public <T> void printInformation() {
-    for (Book t : resultList) {
+  // Metoda ma dostęp do parametru T więc nie musi go mieć w nazwie: public <T> void printInformation()
+  public void printInformation() {
+    for (T t : resultList) {
       System.out.println(t.getInformation());
     }
   }
 
-  // W pętli foreach nie można użyć parametru T. Musi to już być typ ograniczający. W tym przypadku Book.
-  public <T> double sumWeight() {
+  // Metoda ma dostęp do parametru T więc nie musi go mieć w nazwie: public <T> double sumWeight()
+  public double sumWeight() {
     double sum = 0;
-    for (Book element : resultList) {
+    for (T element : resultList) {
       sum += element.getWeight();
     }
     return sum;
   }
 
-  DescriptComparator comparator = new DescriptComparator();
-
-  public <T> void getMaxDesc() {
+  DescriptComparator<T> comparator = new DescriptComparator();
+  // Metoda ma dostęp do parametru T więc nie musi go mieć w nazwie: public <T> void getMaxDesc()
+  public void getMaxDesc() {
     System.out.println(resultList.stream().max(comparator));
 
   }
