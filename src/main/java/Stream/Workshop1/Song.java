@@ -1,6 +1,7 @@
 package Stream.Workshop1;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Song {
   private String title;
@@ -14,6 +15,19 @@ public class Song {
     this.artist = artist;
     this.lastOfSong = lastOfSong;
     this.releaseDate = releaseDate;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Song song = (Song) o;
+    return Objects.equals(artist, song.artist);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(artist);
   }
 
   public String getTitle() {

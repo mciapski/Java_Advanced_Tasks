@@ -8,6 +8,12 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/*
+1. limit - we can reduce stream elements to some amount
+2. skip - we can skip some elements in stream
+3. distinct - reduce duplicate elements in stream (we have to override method equals and hashcode in class)
+4. count - return amount of elements in stream
+*/
 public class SongApp {
   public static void main(String[] args) {
 
@@ -25,6 +31,7 @@ public class SongApp {
     songList.add(new Song("Mama", "Genesis", 6.49, LocalDate.of(1983, 8, 22)));
     songList.add(new Song("Keeper", "Reignwolf", 3.34, LocalDate.of(2021, 5, 1)));
     songList.add(new Song("The Void", "MUSE", 4.44, LocalDate.of(2018, 1, 1)));
+    songList.add(new Song("The DarkSIde", "MUSE", 4.13, LocalDate.of(2018, 1, 1)));
 
     System.out.println("Ordered by Title");
     cleaner.orderedBy(songList, byTitle);
@@ -41,8 +48,14 @@ public class SongApp {
     System.out.println("Max Last Time Song");
     cleaner.maxSongTime(songList, byLastSong);
 
+    System.out.println("Max Last Time Song by Reduce");
+    cleaner.maxSongByReduce(songList);
+
     System.out.println("Songs last more then 4 min");
     cleaner.filterBy(songList, byLastOfSongMoreThen4Min);
+
+    System.out.println("Reduce the same artist");
+    cleaner.eliminateTheSameArtist(songList);
   }
 }
 
