@@ -55,7 +55,6 @@ public class ListaMetody implements ListaInt {
         String[] elementy = wierszDoAnalizy.split("/");
         Piosenka nastepnaPiosenka = new Piosenka(elementy[0],elementy[1], elementy[2], elementy[3]);
         listaPiosenek.add(nastepnaPiosenka);
-
     }
 
 
