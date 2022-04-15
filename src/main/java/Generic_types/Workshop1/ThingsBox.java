@@ -1,6 +1,6 @@
 package Generic_types.Workshop1;
 
-import org.junit.Test;
+
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -30,7 +30,7 @@ public class ThingsBox<T extends Book> {
   }
 
   // Metoda ma dostęp do parametru T więc nie musi go mieć w nazwie: public <T> void printInformation()
-  @Test
+
   public void printInformation() {
     for (T t : resultList) {
       System.out.println(t.getInformation());
